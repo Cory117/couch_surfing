@@ -111,7 +111,7 @@ for (let i = 0; i < properties.length; i++) {
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
     showDetails(you.permissions, card, properties[i].price)
-    propertyContainer.appendChild(card)
+    propertyContainer!.appendChild(card)
 }
 
 // Get reviews
@@ -124,17 +124,17 @@ function addReviews(array : Review[]) : void {
             const card = document.createElement('div')
             card.classList.add('review-card')
             card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name
-            reviewContainer.appendChild(card)
+            reviewContainer!.appendChild(card)
         }
-        container.removeChild(button) 
+        container!.removeChild(button!) 
     }
 }
 
-button.addEventListener('click', () => addReviews(reviews))
+button!.addEventListener('click', () => addReviews(reviews))
 
 // Footer
 let currentLocation : [string, string, number] = ['London', '11:03', 17]
-footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
+footer!.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
 
 // Set main property 
 let yourMainProperty = new MainProperty(
@@ -150,4 +150,4 @@ let yourMainProperty = new MainProperty(
 const mainImageContainer = document.querySelector('.main-image')
 const image = document.createElement('img')
 image.setAttribute('src', yourMainProperty.src)
-mainImageContainer.appendChild(image)
+mainImageContainer!.appendChild(image)
